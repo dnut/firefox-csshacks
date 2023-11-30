@@ -1,0 +1,15 @@
+@import url(hide_tab_bar.css);
+
+/* Makes room on the right of the menu button for the window buttons */
+#nav-bar {
+    border-inline: var(--uc-window-drag-space-width, 80px) solid var(--toolbar-bgcolor);
+    border-inline-style: solid !important;
+    border-right-width: calc(var(--uc-window-control-width, 0px) + var(--uc-window-drag-space-width, 0px));
+    margin-left: -80px;
+}
+
+/* TODO: what purpose does this have? it fully removes the toolbar in macos which is a problem */
+:root:not([inFullscreen]) #nav-bar {
+    margin-top: calc(0px - var(--uc-toolbar-height));
+    z-index: 2;
+}

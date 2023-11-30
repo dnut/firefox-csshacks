@@ -4,27 +4,14 @@
     --uc-window-control-width: 115px;
 }
 
-#nav-bar {
-    border-inline: var(--uc-window-drag-space-width, 80px) solid var(--toolbar-bgcolor);
-    border-inline-style: solid !important;
-    border-right-width: calc(var(--uc-window-control-width, 0px) + var(--uc-window-drag-space-width, 0px));
-    margin-left: -80px;
-}
-
 /* Hide main tabs toolbar */
 #TabsToolbar {
     visibility: collapse !important;
 }
 
-
 /*Hide the Titlebar*/
 :root {
     --uc-toolbar-height: 38px;
-}
-
-:root:not([inFullscreen]) #nav-bar {
-    margin-top: calc(0px - var(--uc-toolbar-height));
-    z-index: 2;
 }
 
 #toolbar-menubar {
@@ -49,3 +36,23 @@
     width: 35px;
     height: 38px;
 }
+
+/* these were previously overrides in userChrome.css, but i think they
+   are no longer useful because this file fully reimplements it?
+ */
+
+/* autohide_tabstoolbar.css overrides */
+/* #navigator-toolbox:hover,
+#navigator-toolbox:hover>#titlebar,
+#navigator-toolbox:hover #TabsToolbar {
+    transition-delay: 10s
+}
+ */
+
+/* move gui buttons that are not easily customizable to the left */
+/* #PanelUI-button,
+#nav-bar-overflow-button,
+#unified-extensions-button {
+    -moz-box-ordinal-group: 0 !important;
+} */
+

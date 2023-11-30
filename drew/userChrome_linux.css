@@ -1,0 +1,9 @@
+@import url(autohide_sidebar.css);
+@import url(hide_tab_bar_linux.css);
+
+/* TODO: What is this for? */
+/* This will style any <img> element in .parent div */
+.fav img {
+    height: 100px;
+    width: 200%;
+}

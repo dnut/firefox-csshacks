@@ -1,0 +1,44 @@
+@import url(../chrome/autohide_sidebar.css);
+@import url(hide_tab_bar.css);
+
+
+/* autohide_sidebar.css overrides */
+#sidebar-box {
+    /* --uc-sidebar-width: 137px; min size to avoid wrapping the top bar */
+    --uc-sidebar-width: 80px;
+    --uc-sidebar-hover-width: 300px;
+    --uc-autohide-sidebar-delay: 200ms;
+}
+
+#sidebar-header,
+#sidebar {
+    transition: min-width 50ms linear var(--uc-autohide-sidebar-delay) !important;
+}
+
+#sidebar-box:hover>#sidebar-header,
+#sidebar-box:hover>#sidebar {
+    transition-delay: 150ms !important;
+}
+
+
+/* autohide_tabstoolbar.css overrides */
+/* #navigator-toolbox:hover,
+#navigator-toolbox:hover>#titlebar,
+#navigator-toolbox:hover #TabsToolbar {
+    transition-delay: 10s
+}
+ */
+
+/* move gui buttons that are not easily customizable to the left */
+/* #PanelUI-button,
+#nav-bar-overflow-button,
+#unified-extensions-button {
+    -moz-box-ordinal-group: 0 !important;
+} */
+
+
+/* This will style any <img> element in .parent div */
+.fav img {
+    height: 100px;
+    width: 200%;
+}

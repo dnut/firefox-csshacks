@@ -34,8 +34,11 @@ See the above repository for updates as well as full license text. */
   }
 }
 @media (-moz-platform: macos){
-  :root:is([tabsintitlebar],[sizemode="fullscreen"]) {
+  :root:is([tabsintitlebar]) {
     --uc-window-control-width: 72px;
+  }
+  :root:is([tabsintitlebar][sizemode="fullscreen"]) {
+    --uc-window-control-width: 0;
   }
 }
 
@@ -73,21 +76,6 @@ See the above repository for updates as well as full license text. */
   :root[sizemode="fullscreen"] #window-controls{ right: unset }
 }
 @media (-moz-bool-pref: "userchrome.force-window-controls-on-left.enabled"){
-  .titlebar-buttonbox-container{
-    order: -1 !important;
-  }
-  .titlebar-buttonbox{
-    flex-direction: row-reverse;
-  }
-}
-
-/* This pref can be used to force window controls on left even if that is not normal behavior on your OS */
-@supports -moz-bool-pref("userchrome.force-window-controls-on-left.enabled"){
-  :root[tabsintitlebar="true"] #nav-bar{
-    border-inline-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) var(--uc-window-drag-space-pre,0px)
-  }
-  :root[sizemode="fullscreen"] #TabsToolbar > .titlebar-buttonbox-container:last-child,
-  :root[sizemode="fullscreen"] #window-controls{ right: unset; }
   .titlebar-buttonbox-container{
     order: -1 !important;
   }

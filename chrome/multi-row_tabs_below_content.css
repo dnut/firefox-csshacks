@@ -33,16 +33,6 @@ See the above repository for updates as well as full license text. */
   #main-window[tabsintitlebar]{
     background-color: var(--toolbar-bgcolor,accentcolor) !important;;
   }
-  /* This is a workaround for fx 119 specifically for users that use default theme, should remove when 120 is released. See bug 1853524 */
-  #main-window[tabsintitlebar]:not(:-moz-lwtheme){
-    --toolbar-bgcolor: #f9f9fb !important;
-  }
-  /* ...and for dark variant */
-  @media (prefers-color-scheme: dark){
-    #main-window[tabsintitlebar]:not(:-moz-lwtheme){
-      --toolbar-bgcolor: rgb(43, 42, 51) !important;
-    }
-  }
   :root[uidensity="compact"]{ --multirow-toolbar-height: 34px }
   :root{ border-top-width: 0px !important }
 
@@ -79,7 +69,7 @@ See the above repository for updates as well as full license text. */
     display: none !important;
   }  
   /* Fix incorrect vertical alignment with megabar */
-  #urlbar[breakout]{ --urlbar-toolbar-height: var(--multirow-toolbar-height) !important; }
+  #urlbar[breakout]{ --urlbar-container-height: var(--multirow-toolbar-height) !important; }
 
   /* Fix customization view */
   #customization-panelWrapper > .panel-arrowbox > .panel-arrow{ margin-inline-end: initial !important; }
@@ -87,7 +77,7 @@ See the above repository for updates as well as full license text. */
   /* Fullscreen mode support */
   #customization-container,
   :root:not([inFullscreen]) #content-deck,
-  :root:not([inFullscreen]) #browser{
+  :root:not([chromehidden~="toolbar"]):not([inFullscreen]) #browser {
     margin-top: calc(var(--multirow-toolbar-height) + var(--multirow-top-padding) + var(--multirow-menubar-height,0px));
   }
   :root[inFullscreen] #toolbar-menubar,
@@ -233,23 +223,6 @@ See the above repository for updates as well as full license text. */
     z-index: auto !important;
   }
   @media (-moz-bool-pref: "userchrome.multirowtabs.static-menubar.enabled"){
-    :root{
-      --multirow-menubar-height: 28px;
-      --uc-window-drag-space-width: 0px;
-      --uc-window-control-width: 0px;
-    }
-    #main-menubar,
-    #toolbar-menubar{ height: var(--multirow-menubar-height); background-image: none; }
-    #toolbar-menubar > #menubar-items{ visibility: visible; background-image: none !important; }
-    .titlebar-buttonbox-container{ background: none !important }
-    :root:not([inFullscreen]) #nav-bar{
-      top: calc(var(--multirow-menubar-height) + var(--multirow-top-padding));
-    }
-    :root[BookmarksToolbarOverlapsBrowser] #PersonalToolbar{
-      top: calc(var(--multirow-toolbar-height) + var(--multirow-top-padding) + var(--multirow-menubar-height));
-    }
-  }
-  @supports -moz-bool-pref("userchrome.multirowtabs.static-menubar.enabled"){
     :root{
       --multirow-menubar-height: 28px;
       --uc-window-drag-space-width: 0px;

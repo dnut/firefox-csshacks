@@ -4,17 +4,27 @@
 /* autohide_sidebar.css overrides */
 #sidebar-box {
     /* --uc-sidebar-width: 137px; min size to avoid wrapping the top bar */
-    --uc-sidebar-width: 80px;
-    --uc-sidebar-hover-width: 300px;
+    --uc-sidebar-width: 50px;
+    --uc-sidebar-hover-width: 400px;
     --uc-autohide-sidebar-delay: 200ms;
 }
 
 #sidebar-header,
 #sidebar {
     transition: min-width 50ms linear var(--uc-autohide-sidebar-delay) !important;
+
+    /* to prevent squashing when unhovered https://github.com/MrOtherGuy/firefox-csshacks/pull/380 */
+    min-width: var(--uc-sidebar-hover-width) !important;
 }
 
 #sidebar-box:hover>#sidebar-header,
 #sidebar-box:hover>#sidebar {
     transition-delay: 150ms !important;
+}
+
+/* to prevent squashing when unhovered https://github.com/MrOtherGuy/firefox-csshacks/pull/380 */
+#sidebar-box:not(*:hover) {
+    overflow: clip;
+    border-inline: 1px solid rgb(80, 80, 80);
+    border-inline-width: 0px 1px;
 }

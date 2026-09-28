@@ -1,5 +1,7 @@
 @import url(autohide_sidebar.css);
-@import url(hide_tab_bar_linux.css);
+
+/* This is no longer needed. Simply enable side tabs and hide them */
+/* @import url(hide_tab_bar_linux.css); */
 
 /* TODO: What is this for? */
 /* This will style any <img> element in .parent div */
